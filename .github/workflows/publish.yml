@@ -3,6 +3,9 @@ on: [push]
 jobs:
   publish-hello-docker-image:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - uses: actions/checkout@v2
       - name: Login to GitHub Container Registry
@@ -13,6 +16,6 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build the hello-docker Docker image
         run: |
-         docker build . --tag ghcr.io/deselikem/hello-docker-gcr-demo:latest
-         docker run ghcr.io/deselikem/hello-docker-gcr-demo:latest
-         docker push ghcr.io/deselikem/hello-docker-gcr-demo:latest
+         docker build . --tag ghcr.io/yyucra/hello-docker-gcr:latest
+         docker run ghcr.io/yyucra/hello-docker-gcr-demo:latest
+         docker push ghcr.io/yyucra/hello-docker-gcr-demo:latest
