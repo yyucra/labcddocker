@@ -17,4 +17,5 @@ jobs:
       - name: Build the hello-docker Docker image
         run: |
          docker build . -t ghcr.io/yyucra/hello-docker-gcr:latest
-         docker push ghcr.io/yyucra/hello-docker-gcr-demo:latest
+         docker run ghcr.io/yyucra/hello-docker-gcr:latest
+         docker push ghcr.io/yyucra/hello-docker-gcr:latest
